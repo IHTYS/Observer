@@ -1,0 +1,36 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="digitalSensor1" class="ru.tusur.udo.sensors.emulator.FakeSensor">
+       <property name="name" value="sensor1"/>
+       <property name="type" value="DIGITAL"/>
+       <property name="emulationStrategy" ref="digitalEmulationStrategy1"/>
+   </bean>
+
+    <bean id="digitalSensor2" class="ru.tusur.udo.sensors.emulator.FakeSensor">
+        <property name="name" value="sensor2"/>
+        <property name="type" value="DIGITAL"/>
+        <property name="emulationStrategy" ref="digitalEmulationStrategy2"/>
+    </bean>
+
+    <bean id="digitalEmulationStrategy1"
+          class="ru.tusur.udo.sensors.emulator.DigitalEmulationStrategy"
+          scope="prototype">
+
+        <property name="ticksCount" value="3"/>
+
+    </bean>
+
+    <bean id="digitalEmulationStrategy2"
+          class="ru.tusur.udo.sensors.emulator.DigitalEmulationStrategy"
+          scope="prototype">
+
+        <property name="ticksCount" value="6"/>
+
+    </bean>
+
+
+
+</beans>
